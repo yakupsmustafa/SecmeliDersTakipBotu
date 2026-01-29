@@ -1,0 +1,27 @@
+name: OBS Kontenjan Takip
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Python kurulumu
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Paketler
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+
+      - name: Botu çalıştır
+        run: |
+          python main.py
