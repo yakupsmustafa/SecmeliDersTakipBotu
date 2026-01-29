@@ -1,3 +1,4 @@
+import os
 import asyncio
 import re
 from typing import Dict, Optional, Tuple, List
@@ -9,8 +10,8 @@ import aiohttp
 # =========================
 
 OBS_URL = "https://obis1.selcuk.edu.tr"
-OBS_USERNAME = "OGRENCI_NO"
-OBS_PASSWORD = "SIFRE"
+OBS_USERNAME = os.environ.get("OBS_USERNAME")
+OBS_PASSWORD = os.environ.get("OBS_PASSWORD")
 
 BROWSER_CONFIG = {
     "headless": True,
@@ -24,8 +25,8 @@ RETRY_CONFIG = {
     "delay_between_attempts": 2
 }
 
-# TELEGRAM_BOT_TOKEN = "BURAYA_BOT_TOKEN"
-# TELEGRAM_CHAT_ID = "BURAYA_CHAT_ID"
+TELEGRAM_BOT_TOKEN = os.environ.get("OBS_PASSWORD")
+TELEGRAM_CHAT_ID = os.environ.get("OBS_PASSWORD")
 
 # =========================
 # LOGGING (SIMPLE)
